@@ -1,0 +1,8 @@
+onnx-asr[cpu,hub]>=0.10.0
+waitress>=3.0.0
+flask>=3.0.0
+openai>=1.0.0
+typing_extensions>=4.0.0
+
+# Optional GPU support (uncomment if you have NVIDIA GPU)
+# onnxruntime-gpu>=1.18.1
