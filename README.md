@@ -11,31 +11,8 @@ This implementation achieves exceptional real-time speeds, outperforming standar
 
 **Parakeet TDT 0.6B v3** features robust multilingual capabilities with **automatic language detection**. The model can automatically identify and transcribe speech in any of the **25 supported European languages** without requiring manual language specification:
 
-- 🇧🇬 Bulgarian
-- 🇭🇷 Croatian
-- 🇨🇿 Czech
-- 🇩🇰 Danish
-- 🇳🇱 Dutch
-- 🇬🇧 English
-- 🇪🇪 Estonian
-- 🇫🇮 Finnish
-- 🇫🇷 French
-- 🇩🇪 German
-- 🇬🇷 Greek
-- 🇭🇺 Hungarian
-- 🇮🇹 Italian
-- 🇱🇻 Latvian
-- 🇱🇹 Lithuanian
-- 🇲🇹 Maltese
-- 🇵🇱 Polish
-- 🇵🇹 Portuguese (European)
-- 🇷🇴 Romanian
-- 🇷🇺 Russian
-- 🇸🇰 Slovak
-- 🇸🇮 Slovenian
-- 🇪🇸 Spanish
-- 🇸🇪 Swedish
-- 🇺🇦 Ukrainian
+English, Spanish, French, German, Italian, Portuguese , Russian, Polish, Ukrainian, Romanian, Dutch, Greek, Czech, Hungarian, Swedish, Bulgarian, Danish, Finnish, Slovak, Croatian, Lithuanian, Latvian, Slovenian, Estonian, Maltese
+
 
 Simply send audio in any of these languages, and the model will automatically detect and transcribe it with high accuracy, including proper punctuation and capitalization.
 
