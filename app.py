@@ -148,6 +148,13 @@ def detect_silence_points(file_path: str, silence_thresh: str = SILENCE_THRESHOL
     
     try:
         result = subprocess.run(command, capture_output=True, text=True, timeout=SILENCE_DETECT_TIMEOUT)
+        
+        # Check if FFmpeg command succeeded (note: returncode can be non-zero even with valid output)
+        # FFmpeg returns 0 for success, but we'll check stderr for actual silence detection output
+        if result.returncode != 0 and not result.stderr:
+            print(f"Warning: FFmpeg silence detection returned code {result.returncode}")
+            return []
+        
         # Parse stderr output for silence intervals
         silence_points = []
         silence_start = None
@@ -167,8 +174,14 @@ def detect_silence_points(file_path: str, silence_thresh: str = SILENCE_THRESHOL
                     pass
         
         return silence_points
+    except subprocess.TimeoutExpired:
+        print(f"Timeout: Silence detection exceeded {SILENCE_DETECT_TIMEOUT}s timeout")
+        return []
+    except (subprocess.CalledProcessError, OSError) as e:
+        print(f"Error running FFmpeg for silence detection: {e}")
+        return []
     except Exception as e:
-        print(f"Error detecting silence: {e}")
+        print(f"Unexpected error detecting silence: {e}")
         return []
 
 
