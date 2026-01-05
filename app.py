@@ -133,6 +133,11 @@ def detect_silence_points(file_path: str, silence_thresh: str = SILENCE_THRESHOL
     Returns:
         List of tuples (silence_start, silence_end) in seconds
     """
+    # Validate file exists
+    if not os.path.exists(file_path):
+        print(f"Error: Audio file '{file_path}' not found for silence detection")
+        return []
+    
     command = [
         "ffmpeg",
         "-i", file_path,
