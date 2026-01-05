@@ -30,6 +30,23 @@ Measured with **P-core Optimization (Threads=8, Pinned)**:
 
 *Note: Benchmarks run using local endpoint with INT8 quantization, pinned to P-cores.*
 
+## ⚡ Performance Optimization Guide
+
+To achieve the **29.7x speedup** on hybrid CPUs (like Intel 12th/13th/14th Gen), it is critical to use **P-cores only**.
+
+### Linux (Recommended)
+Use `taskset` to pin the process to Performance cores (usually 0-15 on i7-12700K).
+
+```bash
+# Example for 8 P-cores (cores 0-7 physical, 8-15 hyperthreads)
+taskset -c 0-15 python app.py
+```
+
+### Resource Usage
+- **RAM**: ~3.0 GB (Model + Runtime)
+- **CPU**: 100% usage on assigned cores during transcription
+- **VRAM**: 0 GB (Runs entirely on CPU)
+
 ## 🛠️ Installation
 
 ### 1. Prerequisites
